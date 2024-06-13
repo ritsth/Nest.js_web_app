@@ -1,0 +1,6 @@
+/* hiphen "-" doesn;t work as name so use camelCase */
+.card {
+    padding: 1rem;
+    border: 1px solid white;
+
+}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 // like a struct in c++
@@ -19,9 +20,36 @@ const UserPage = async () => {
         <>
             <h1>Users</h1>
             <p>{new Date().toLocaleTimeString()}</p>
-            <ul>
-                {users.map(user => <li key={user.id}> {user.name}</li>)}
-            </ul>
+            <div className="">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Id</th>
+                            <th>Id</th>
+                        </tr>                    
+                    </thead>
+                    <tbody>
+                    {users.map(user => 
+                        <tr key={user.id}>
+                            <td >
+                                <Link href={`user/${user.id}`}>
+                                    {user.name}                                  
+                                </Link>
+                            </td>
+                            <td>
+                                {user.id}
+                            </td>
+                            <td>
+                                {user.name}
+                            </td>
+                        </tr>
+                    )}                    
+                    </tbody>
+
+                </table>                
+            </div>
+
         </>
     )
 }

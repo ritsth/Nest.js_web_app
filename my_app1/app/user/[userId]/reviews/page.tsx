@@ -1,4 +1,9 @@
+import { Metadata } from "next";
 import React from "react";
+
+// export const generateMetadata = ():Metadata =>{
+//     return {title: "Review"}
+// }
 
 const AllReviewPage = () => {
     return (

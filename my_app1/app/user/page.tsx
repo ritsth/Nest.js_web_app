@@ -1,12 +1,19 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 
+export const generateMetadata = ():Metadata =>{
+    return {title: "Users"}
+}
 // like a struct in c++
 interface User{
     id: number;
     name: string;
 
 }
+
+//Making the whole page dynamic so it has new data
+//export const dynamic = "force-dynamic";
 
 const UserPage = async () => {
     //{cache:'no-store'} for disabling cache
@@ -17,40 +24,43 @@ const UserPage = async () => {
     const users: User[] = await res.json();
 
     return (
-        <>
-            <h1>Users</h1>
-            <p>{new Date().toLocaleTimeString()}</p>
-            <div className="">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Id</th>
-                            <th>Id</th>
-                        </tr>                    
-                    </thead>
-                    <tbody>
-                    {users.map(user => 
-                        <tr key={user.id}>
-                            <td >
-                                <Link href={`user/${user.id}`}>
-                                    {user.name}                                  
-                                </Link>
-                            </td>
-                            <td>
-                                {user.id}
-                            </td>
-                            <td>
-                                {user.name}
-                            </td>
-                        </tr>
-                    )}                    
-                    </tbody>
+        <Suspense fallback="loading ..."> 
+            <>
+                <h1>Users</h1>
+                <p>{new Date().toLocaleTimeString()}</p>
+                <div className="">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Id</th>
+                                <th>Id</th>
+                            </tr>                    
+                        </thead>
+                        <tbody>
+                        {users.map(user => 
+                            <tr key={user.id}>
+                                <td >
+                                    <Link href={`user/${user.id}`}>
+                                        {user.name}                                  
+                                    </Link>
+                                </td>
+                                <td>
+                                    {user.id}
+                                </td>
+                                <td>
+                                    {user.name}
+                                </td>
+                            </tr>
+                        )}                    
+                        </tbody>
 
-                </table>                
-            </div>
+                    </table>                
+                </div>
 
-        </>
+            </>        
+        </Suspense>
+
     )
 }
 

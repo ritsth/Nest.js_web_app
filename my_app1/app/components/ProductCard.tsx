@@ -4,6 +4,7 @@ import styles from './css/ProductCard.module.css';
 import { Interface } from "readline";
 
 interface Post{
+    id:number,
     title: string,
     body: string
 }
@@ -15,7 +16,7 @@ const ProductCard = async () => {
         <div className="">
             <AddToCart/>
             <ul>
-                {posts.map(post => <li> {post.title}</li>)}                
+                {posts.map(post => <li key={post.id}> {post.title}</li>)}                
             </ul>
 
         </div>

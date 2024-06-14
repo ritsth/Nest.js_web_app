@@ -1,6 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
+type Props = {
+    stat: string;
+}
+
 const Navbar = async () => {
 
     return (

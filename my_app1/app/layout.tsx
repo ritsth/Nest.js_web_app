@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./navbar";
 
+//getting the current route only woks in client server
+// import { usePathname } from "next/navigation";
+
 const inter = Inter({ subsets: ["latin"] });
 
 //Title of the website
@@ -20,14 +23,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const dummy="dummy";
   return ( 
     <html lang="en" data-theme="light">
       <body className={inter.className}>
+
         {/* <Container></Container> */}
+        
         {/* <Header/> */}
         <Navbar/>
         {children}
         {/* <Footer/> */}
+
       </body>
     </html>
   );

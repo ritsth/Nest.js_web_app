@@ -9,9 +9,10 @@ export default function Home() {
       {/* Use Link tag not to rerender repetetive stuff (Client side Navigation) */}
       {/* using anchor tage <a></a> will render everything again */}
       {/* <Link href="/user">Users</Link> */}
-      <Suspense fallback="loading.....">
+      
+      {/* <Suspense fallback="loading....."> */}
         <ProductCard/>
-      </Suspense>
+      {/* </Suspense> */}
 
     </main>
   );

@@ -24,7 +24,7 @@ const UserPage = async () => {
     const users: User[] = await res.json();
 
     return (
-        <Suspense fallback="loading ..."> 
+        // <Suspense fallback="loading ..."> 
             <>
                 <h1>Users</h1>
                 <p>{new Date().toLocaleTimeString()}</p>
@@ -59,7 +59,7 @@ const UserPage = async () => {
                 </div>
 
             </>        
-        </Suspense>
+        // </Suspense>
 
     )
 }

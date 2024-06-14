@@ -46,7 +46,9 @@ const NewUserPage = async(
 ) => {
     const res = await fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`);
     const users :User = await res.json();
-
+    if(users.id == 1){
+        throw new Error("Dummy error");
+    }
     return (
         <div>New User Page , User name: {users.name} </div>
     )

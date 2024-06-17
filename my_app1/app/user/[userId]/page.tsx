@@ -20,8 +20,8 @@ export const generateMetadata = async({params}: {
         userId: number,
     }//Don't for get to put promise for in Metadata for async and await         
 }): Promise<Metadata> =>{
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`);
-    const users :User = await res.json();
+    const res = await fetch(`http://localhost:3000/api/users/${params.userId}`);
+    const {user} = await res.json();
     // const title = await new Promise((resolve) =>{
     //     setTimeout(() => {
     //         resolve(`${users.name}`);
@@ -29,7 +29,7 @@ export const generateMetadata = async({params}: {
     // });
    
     return {
-        title:`${users.name}`,
+        title:`${user.name}`,
     };
 };
 
@@ -44,13 +44,13 @@ const NewUserPage = async(
     }
 
 ) => {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`);
-    const users :User = await res.json();
-    if(users.id == 1){
+    const res = await fetch(`http://localhost:3000/api/users/${params.userId}`);
+    const {user} = await res.json();
+    if(user.id == 1){
         throw new Error("Dummy error");
     }
     return (
-        <div>New User Page , User name: {users.name} </div>
+        <div>New User Page , User name: {user.name} </div>
     )
 }
 

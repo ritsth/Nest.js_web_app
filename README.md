@@ -22,3 +22,10 @@ A full-stack web application built with **Next.js** and **MongoDB**. This projec
 3. Install the required dependencies:
    ```bash
    npm install
+   ```
+4. Configure your environment variables. Create a `.env` file in the root directory and add your MongoDB connection string and any other required keys.
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+6. Open `http://localhost:3000` in your browser to view the application.

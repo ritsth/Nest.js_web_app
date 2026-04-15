@@ -28,4 +28,4 @@ A full-stack web application built with **Next.js** and **MongoDB**. This projec
    ```bash
    npm run dev
    ```
-6. Open `http://localhost:3000` in your browser to view the application.
+6. Open [![http://localhost:3000](http://localhost:3000) in your browser to view the application.
